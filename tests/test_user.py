@@ -6,6 +6,7 @@ import pytest
 
 User = get_user_model()  # Get a reference to the user model (replace with your actual user model).
 
+@pytest.mark.django_db
 def test_user_creation():
     """Test if creating a new User instance is successful."""
     
