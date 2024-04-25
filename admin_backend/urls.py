@@ -38,11 +38,6 @@ router.register(r"users", views_user_role_permission.UserViewSet)
 router.register(r"roles", views_user_role_permission.RoleViewSet)
 router.register(r"permissions", views_user_role_permission.PermissionViewSet)
 router.register(r"profiles", views_user_role_permission.ProfileViewSet)
-router.register(r"inventorys", views.InventoryViewSet)
-router.register(r"parameters", views.ParameterViewSet)
-router.register(r"hardwares", views.HardwareViewSet)
-router.register(r"inventory_extras", views.InventoryExtraViewSet)
-router.register(r"asins", views.StandardProductAsinViewSet)
 # router.register(r"inventory_group", views.InventoryGroupList)
 
 # Wire up our API using automatic URL routing.
@@ -59,26 +54,6 @@ router.register(r"asins", views.StandardProductAsinViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path(
-        "api/inventory_summary/",
-        views_api.inventory_summary,
-        name="inventory_summary",
-    ),
-    path(
-        "api/upc_asin_count/",
-        views_api.upc_asin_count,
-        name="upc_asin_count",
-    ),
-    path(
-        "api/inventory_group/",
-        views.InventoryGroupList.as_view(),
-        name="inventory_group",
-    ),
-    path(
-        "api/standard_product_asin/",
-        views.StandardProductCreate.as_view(),
-        name="inventory_group",
-    ),
     path(
         "api/role/permissions/tree/",
         views_user_role_permission.RolePermissionTree.as_view(),
