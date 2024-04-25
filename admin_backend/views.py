@@ -1,26 +1,16 @@
-from django.http import Http404
-from rest_framework import permissions, viewsets, generics
-from django.db.models import Sum, Max
-from rest_framework.response import Response
-from rest_framework.request import Request
-
-
-from admin_backend.serializers import (
-    MyTokenObtainPairSerializer,
-)
-
-from django.http import Http404
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework import generics, status
-from rest_framework.response import Response
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
-from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.contrib.auth.models import update_last_login
-from rest_framework_simplejwt.tokens import RefreshToken
+from django.db.models import Max, Sum
+from django.http import Http404
+from rest_framework import generics, permissions, status, viewsets
+from rest_framework.request import Request
+from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+from admin_backend.serializers import MyTokenObtainPairSerializer
 
 
 class MyTokenObtainPairView(TokenObtainPairView):

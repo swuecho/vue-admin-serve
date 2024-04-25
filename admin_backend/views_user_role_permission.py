@@ -1,26 +1,17 @@
 from django.contrib.auth.models import Group, User
-from admin_backend.models import (
-    Permission,
-    Profile,
-    Role,
-    RolePermissionsPermission,
-    UserRolesRole,
-)
 from rest_framework import permissions, viewsets
-from rest_framework.response import Response
-from rest_framework.request import Request
-from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 
-from admin_backend.serializers import (
-    GroupSerializer,
-    ProfileSerializer,
-    UserSerializer,
-    RoleSerializer,
-    PermissionSerializer,
-)
 from admin_backend.app_permission import IsSuperAdmin
+from admin_backend.models import (Permission, Profile, Role,
+                                  RolePermissionsPermission, UserRolesRole)
+from admin_backend.serializers import (GroupSerializer, PermissionSerializer,
+                                       ProfileSerializer, RoleSerializer,
+                                       UserSerializer)
 
 
 def get_claims_from_request(request):

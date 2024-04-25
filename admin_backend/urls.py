@@ -15,23 +15,14 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import include, path, re_path
-from rest_framework_simplejwt.views import (
-    TokenRefreshView,
-    TokenVerifyView,
-)
+from django.urls import include, path
+from rest_framework import routers
+from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
+
+from admin_backend import views_api, views_user_role_permission
 from admin_backend.views import MyTokenObtainPairView, SwitchRoleView
 
 from .ninja import api as ninja_api
-from django.urls import include, path
-from rest_framework import routers
-
-from admin_backend import views
-from admin_backend import views_api
-from admin_backend import views_user_role_permission
-from django.conf import settings
-from django.conf.urls.static import static
-
 
 router = routers.DefaultRouter()
 router.register(r"users", views_user_role_permission.UserViewSet)

@@ -1,11 +1,10 @@
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.response import Response
 from rest_framework.request import Request
+from rest_framework.response import Response
+
 from admin_backend.app_permission import IsSuperAdmin
 from admin_backend.models import Permission
-from admin_backend.serializers import (
-    PermissionSerializer,
-)
+from admin_backend.serializers import PermissionSerializer
 
 
 @api_view()

@@ -1,14 +1,8 @@
 from django.contrib.auth.models import Group, User
-from admin_backend.models import (
-    Profile,
-    Permission,
-    Role
-)
 from rest_framework import serializers
-
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework import serializers
-from admin_backend.models import Role
+
+from admin_backend.models import Permission, Profile, Role
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

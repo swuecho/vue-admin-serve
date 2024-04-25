@@ -1,8 +1,9 @@
 from typing import Any, Optional
+
 from django.http import HttpRequest
 from ninja import NinjaAPI, Schema
-from rest_framework_simplejwt.authentication import JWTAuthentication
 from ninja.security import HttpBearer
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class GlobalJWTAuth(HttpBearer):
