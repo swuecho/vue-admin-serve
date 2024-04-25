@@ -20,7 +20,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
-from ecomm.views import MyTokenObtainPairView, SwitchRoleView
+from admin.views import MyTokenObtainPairView, SwitchRoleView
 
 from .ninja import api as ninja_api
 from django.urls import include, path

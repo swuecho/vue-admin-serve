@@ -1,5 +1,5 @@
 from django.http import Http404
-from ecomm.serializers import MyTokenObtainPairSerializer
+from admin.serializers import MyTokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import generics, status
 from rest_framework.response import Response
