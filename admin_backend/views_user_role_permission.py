@@ -122,12 +122,10 @@ class RolePermissionTree(APIView):
         """based on user role and permission to get list"""
         roles = Role.objects.filter(userrolesrole__user_id=request.user.id)
         jwt_claims = get_claims_from_request(request)
-        print(jwt_claims)
         current_role_code = jwt_claims.get("role")
         user_permission_ids = RolePermissionsPermission.objects.filter(
             role_id__in=[r.id for r in roles if r.code == current_role_code]
         )
-        print(user_permission_ids)
         permission_id_set = {d.permission.id for d in user_permission_ids}
         top_level_permissions = Permission.objects.filter(
             parent_id__isnull=True, id__in=permission_id_set
