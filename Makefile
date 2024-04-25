@@ -12,6 +12,15 @@ static:
 	# cp -rf templates/components staticfiles/components
 	python manage.py collectstatic --noinput
 	cp -rf  ../admin_backend-ui/dist/* staticfiles
+dev:
+    echo $DEBUG
+    echo $DATABASE_URL
+    python manage.py runserver 0.0.0.0:8001
+serve:
+    echo $DEBUG
+    echo $DATABASE_URL
+    gunicorn --bind 0.0.0.0:8001 --workers 2 admin_backend.wsgi:application
+
 
 tag:
 	git tag release-v$(version)
