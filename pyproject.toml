@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "bestqa_django"
+name = "admin_backend"
 version = "0.2.0"
-description = "bestqa admin"
+description = "admin_backend"
 authors = ["Hao Wu <echowuhao@gmail.com>"]
 license = "private"
 

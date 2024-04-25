@@ -18,11 +18,11 @@ tag:
 	git push origin tag release-v$(version)
 
 build:
-	docker build --build-arg PYPI=$(PYPI)  --build-arg TRUSTED_HOST=$(TRUSTED_HOST) --build-arg docker_registry=192.168.0.100:5555  -t $(local_registry)/bestqa_django:$(version) -f Dockerfile .
+	docker build --build-arg PYPI=$(PYPI)  --build-arg TRUSTED_HOST=$(TRUSTED_HOST) --build-arg docker_registry=192.168.0.100:5555  -t $(local_registry)/admin_backend:$(version) -f Dockerfile .
 push:
-	docker push $(local_registry)/bestqa_django:$(version)
-	docker tag  $(local_registry)/bestqa_django:$(version) $(aliyun_registry_bestqa)/bestqa_django:$(version)
-	docker push $(aliyun_registry_bestqa)/bestqa_django:$(version)
+	docker push $(local_registry)/admin_backend:$(version)
+	docker tag  $(local_registry)/admin_backend:$(version) $(aliyun_registry_bestqa)/admin_backend:$(version)
+	docker push $(aliyun_registry_bestqa)/admin_backend:$(version)
 
 init:
 	python manage.py migrate
