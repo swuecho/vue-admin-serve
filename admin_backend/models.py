@@ -32,7 +32,7 @@ class Profile(models.Model):
 >>> r1
 <Role: SUPER_ADMIN>
 >>> r1.
-r1.DoesNotExist(                   r1.delete(                         r1.objects                       
+r1.DoesNotExist(                   r1.delete(                         r1.objects
 r1.serializable_value(
 r1.MultipleObjectsReturned(        r1.enable                          r1.pk                              
 r1.unique_error_message(
