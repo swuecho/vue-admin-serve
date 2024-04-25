@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "bestqa_django"
+version = "0.2.0"
+description = "bestqa admin"
+authors = ["Hao Wu <echowuhao@gmail.com>"]
+license = "private"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = {version = "^21.12b0", allow-prereleases = true}
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | \.vscode
+    | jupyter
+    | _build
+    | build
+    | dist
+    | tests
+    | browser_tests
+    | bin
+    | learn
+    | db_changes
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+  |  admin_grpc/admin_pb2.py
+  |  admin_grpc/admin_pb2_grpc.py
+)
+'''

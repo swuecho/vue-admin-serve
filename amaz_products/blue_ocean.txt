@@ -1,0 +1,154 @@
+API address£∫https://customer.blueoceanglobe.com/api/
+
+
+	proc:
+	key: 2wr0earprughhmlg7warxgdoe8e2kgc2
+	data:
+
+Response 
+	result:"1"success£¨"2" Fail
+	data:Content of response
+
+All value used in Json must be charactors
+Max frequency: once per second.
+Procedure:
+	1,write json
+	2,str=urlencode(json)
+	3,POST send str
+	4,Receive Response str
+	5,json=urldecode(str)
+
+1,Outbound json
+	{"proc":"1001","key":"d83k8ukm5****","data":{"page":"0","page_size":"15","tracking":"7878787878"}}
+	page:start from page 0
+	page_size:how many lines of data per page, max 100
+	tracking:Search Tracking, Partial match applicable. mantain past 30 day record only. Updates every 10 mins
+
+	Successfuly reponse
+	{"data":[{"notes":"","outbound_sn":"DE106SFP190904000254","product":[{"qty":"1","upc":"192545427913"}],"shipped_time":"1567693411","sn":["5CD9128HSX"],"tracking":["1Z15998R4294204890"],"wh_id":"DE106"}],"page":"0","page_count":"1","result":"1","total_count":"1"}
+	page_count£∫
+	total_count£∫
+	outbound_sn£∫
+	shipped_time£∫
+	wh_id£∫warehouse ID
+	product£∫
+	sn£∫
+	tracking£∫
+	notes:
+
+
+2,Inbound json
+	{"proc":"1002","key":"d83k8ukm5****","data":{"page":"0","page_size":"15","tracking":"7878787878"}}
+	page:start from page 0
+	page_size:how many lines of data per page, max 100
+	tracking:Search Tracking, Partial match applicable. mantain past 30 day record only. Updates every 10 mins
+
+
+	Successfuly reponse json
+	{"data":[{"inbound_time":"1567711926","qty":"1","tracking":"1Z9X5F554206040929","upc":"X00289Y4UT","wh_id":"DE106"}],"page":"0","page_count":"1","result":"1","total_count":"1"}
+	page_count£∫
+	total_count£∫
+	tracking£∫
+	inbound_time£∫
+
+Alert, If multiple inbound record found with the same tracking number, please use the latest one.
+
+
+3,Inventory Request json
+	{"proc":"1003","key":"d83k8ukm5****","data":{"page":"0","page_size":"15","wh_id":"OR","name":"supplier"}}
+	page:start from page 0
+	page_size:how many lines of data per page, max 100
+	wh_id:Warehouse ID  (Blue Ocean Warehouses: CA5001, DE106, OR11085, TN2801, NH4D)
+	name:Supplier Name, Partial match. show all if left blank
+	Updates every 10 mins
+
+
+	Success response json
+	{"data":[{"supplier":"kek","qty":"1","upc":"X00289Y4UT","wh_id":"DE106"}],"page":"0","page_count":"1","result":"1","total_count":"1"}
+	page_count£∫
+	total_count£∫
+	supplier£∫
+
+	J test:
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"OR11085"}}
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"DE106"}}
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"NH4D"}}
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"TN2801"}}
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"CA5001"}}
+	{"proc":"1003","key":"2wr0earprughhmlg7warxgdoe8e2kgc2","data":{"page":"0","page_size":"100","wh_id":"FL8465"}}
+4,Blue Ocean 3rd party insurance json
+	{"proc":"1004","key":"d83k8ukm5****","data":{"items":[{"condition":"NEW","insure_amount":"200.02","mode_transport":"AIR","ship_date":"20220310","shipment_from":{"address1":"11085 SW 11th St","address2":"","city":"Beaverton","state":"OR","zip_code":"97005"},"shipment_to":{"address1":"106 Lukens Dr","address2":"","city":"New Castle","state":"DE","zip_code":"19720"},"shipping_method":"UPS_2ND_DAY_AIR","tracking_number":"1Z87F7430290066668"}]}}
+	items:max 100 lines
+	tracking_number:12 -32  characters long
+	condition:NEW,USED
+	insure_amount:all digits with 2 dicimals
+	mode_transport: AIR,GROUND,OCEAN
+	ship_date: yyyymmdd, Today (including a future date)
+	shipment_from:
+	shipment_from:address1:
+	shipment_from:address2:
+	shipment_from:city:
+	shipment_from:state: 2 Letters
+	shipment_from:zip_code: Five digits
+	shipment_to:
+	shipment_to:address1:
+	shipment_to:address2:
+	shipment_to:city:
+	shipment_to:state:
+	shipment_to:zip_code:
+	shipping_method: exemple£∫ UPS Ground, UPS 2nd day air, Fedex home delivery ( not exceeding 32 characters)
+
+	Success Response: json
+	{"data":{items:[{"msg":"success","tracking_number":"1Z87F7430290066668","transaction_id":"1646815142"}]},"result":"1"}
+	items£∫
+	tracking_number£∫
+	transaction_id:
+	msg£∫
+
+5,Blue Ocean 3rd party insurance inquiry json
+	{"proc":"1005","key":"d83k8ukm5****","data":{"page":"0","page_size":"15","start_date":"20220101","end_date":"20220309",transaction_id["1646815142"],tracking_number["1Z87F7430290066668"]}}
+	page:start from page 0
+	page_size:how many lines of data per page, max 100
+	start_date: show all results if left blank
+	end_date:show all results if left blank
+	transaction_id:show all results if left blank
+	tracking_number:show all results if left blank
+	
+	Success response json
+	{"data":[{"company_code":"*****","condition":"NEW","cost":"1.80","create_time":"1646815196","insure_amount":"200.02","mode_transport":"AIR","quote_date_time":"","quote_id":"","quote_valid_to":"","ship_date":"2022-03-10","shipment_from":{"addr_1":"11085 SW 11th St","addr_2":"","addr_type":"0","city":"Beaverton","company_name":"","contact_email":"","contact_phone":"","country_code":"US","name":"","state":"OR","zip_code":"97005"},"shipment_to":{"addr_1":"106 Lukens Dr","addr_2":"","addr_type":"0","city":"New Castle","company_name":"","contact_email":"","contact_phone":"","country_code":"US","name":"","state":"DE","zip_code":"19720"},"shipping_method":"UPS_2ND_DAY_AIR","state":"WORK","tracking_number":"1Z87F7430290066668","transaction_id":"1646815142"}],"page":"0","page_count":"1","result":"1","total_count":"1"}
+	company_code:
+	tracking_number:
+	transaction_id£∫
+	condition:NEW,USED
+	insure_amount:all digits with 2 dicimals
+	mode_transport: AIR,GROUND,OCEAN
+	ship_date: yyyy-mm-dd,
+	shipment_from:
+	shipment_from:address1:
+	shipment_from:address2:
+	shipment_from:city:
+	shipment_from:state:
+	shipment_from:zip_code:
+	shipment_to:
+	shipment_to:address1:
+	shipment_to:address2:
+	shipment_to:city:
+	shipment_to:state:
+	shipment_to:zip_code:
+	shipping_method:
+	quote_id:
+	quote_date_time:
+	quote_valid_to:
+	cost:
+	state: Insurance Status, WORK:£¨WAIT_CONFIRM£¨CONFIRMED,FAIL
+	page_count£∫
+	total_count£∫
+
+
+fetch("https://customer.blueoceanglobe.com/api/", {
+  method: "POST",
+  body: ì%7B%22proc%22%3A%221003%22%2C%22key%22%3A%222wr0earprughhmlg7warxgdoe8e2kgc2%22%2C%20%22DATA%22%3A%7B%22page%22%3A%220%22%2C%22page_size%22%3A%2215%22%2C%22wh_id%22%3A%22CA5001%22%7D%7D)î,
+  headers: {
+    "Content-type": "application/x-www-form-urlencoded"
+  }
+});
