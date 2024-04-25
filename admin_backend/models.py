@@ -1,8 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-
-## frontend Permission
 class Permission(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=50)
@@ -34,10 +32,14 @@ class Profile(models.Model):
 >>> r1
 <Role: SUPER_ADMIN>
 >>> r1.
-r1.DoesNotExist(                   r1.delete(                         r1.objects                         r1.serializable_value(
-r1.MultipleObjectsReturned(        r1.enable                          r1.pk                              r1.unique_error_message(
-r1.check(                          r1.from_db(                        r1.prepare_database_save(          r1.userrolesrole_set(
-r1.clean(                          r1.full_clean(                     r1.refresh_from_db(                r1.validate_unique(
+r1.DoesNotExist(                   r1.delete(                         r1.objects                       
+r1.serializable_value(
+r1.MultipleObjectsReturned(        r1.enable                          r1.pk                              
+r1.unique_error_message(
+r1.check(                          r1.from_db(                        r1.prepare_database_save(          
+r1.userrolesrole_set(
+r1.clean(                          r1.full_clean(                     r1.refresh_from_db(                
+r1.validate_unique(
 r1.clean_fields(                   r1.get_deferred_fields(            r1.rolepermissionspermission_set(  
 r1.code                            r1.id                              r1.save(                           
 r1.date_error_message(             r1.name                            r1.save_base(         
