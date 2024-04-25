@@ -1,6 +1,6 @@
 templatestore/frontend/
 __pycache__
-ecomm/__pycache__
+admin_backend/__pycache__
 .metals
 .git
 # node mode

@@ -11,7 +11,7 @@ static:
 	mkdir staticfiles
 	# cp -rf templates/components staticfiles/components
 	python manage.py collectstatic --noinput
-	cp -rf  ../ecomm-ui/dist/* staticfiles
+	cp -rf  ../admin_backend-ui/dist/* staticfiles
 
 tag:
 	git tag release-v$(version)

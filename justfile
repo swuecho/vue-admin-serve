@@ -5,4 +5,4 @@ dev:
 serve:
     echo $DEBUG
     echo $DATABASE_URL
-    gunicorn --bind 0.0.0.0:8001 --workers 2 ecomm.wsgi:application
+    gunicorn --bind 0.0.0.0:8001 --workers 2 admin_backend.wsgi:application
