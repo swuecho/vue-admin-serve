@@ -34,17 +34,6 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ["url", "name"]
 
 
-class InventorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Inventory
-        fields = "__all__"
-
-
-class InventoryGroupSerializer(serializers.Serializer):
-    upc = serializers.CharField()
-    product = serializers.CharField()
-    total_qty = serializers.IntegerField()
-
 
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -63,41 +52,3 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = "__all__"
 
-
-class ParameterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Parameter
-        fields = "__all__"
-
-
-class PriceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Price
-        fields = "__all__"
-
-
-class RankSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rank
-        fields = "__all__"
-
-
-class HardwareSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Hardware
-        fields = "__all__"
-
-
-class InventoryExtraSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = InventoryExtra
-        fields = "__all__"
-
-
-class StandardProductAsinSerilizer(serializers.ModelSerializer):
-    asin = serializers.CharField(max_length=50, allow_blank=True, default="")
-    comment = serializers.CharField(max_length=500, allow_blank=True, default="")
-
-    class Meta:
-        model = StandardProductAsin
-        fields = "__all__"
