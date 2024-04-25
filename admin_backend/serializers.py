@@ -1,15 +1,8 @@
 from django.contrib.auth.models import Group, User
 from admin_backend.models import (
     Profile,
-    Rank,
-    Price,
-    Inventory,
     Permission,
-    Role,
-    Parameter,
-    Hardware,
-    InventoryExtra,
-    StandardProductAsin,
+    Role
 )
 from rest_framework import serializers
 
