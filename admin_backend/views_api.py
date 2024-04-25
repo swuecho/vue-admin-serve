@@ -2,13 +2,13 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.request import Request
 from django.db.models import Count
-from amaz_products.app_permission import IsSuperAdmin
-from amaz_products.models import Permission, StandardProductAsin
-from amaz_products.serializers import (
+from admin_backend.app_permission import IsSuperAdmin
+from admin_backend.models import Permission, StandardProductAsin
+from admin_backend.serializers import (
     PermissionSerializer,
     StandardProductAsinSerilizer,
 )
-from amaz_products.business.amaz_price_and_rank import query_asin_price, query_asin_rank
+from admin_backend.business.amaz_price_and_rank import query_asin_price, query_asin_rank
 
 
 @api_view()

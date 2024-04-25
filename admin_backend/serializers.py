@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-from amaz_products.models import (
+from admin_backend.models import (
     Profile,
     Rank,
     Price,
@@ -15,7 +15,7 @@ from rest_framework import serializers
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
-from amaz_products.models import Role
+from admin_backend.models import Role
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

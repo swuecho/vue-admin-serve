@@ -1,5 +1,5 @@
 from statistics import mean
-from amaz_products.models import Rank, Price
+from admin_backend.models import Rank, Price
 
 
 def query_asin_rank(asin: str, sale_rank_reference=541966, tail=3):

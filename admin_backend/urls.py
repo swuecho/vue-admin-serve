@@ -20,15 +20,15 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
-from amaz_products.views import MyTokenObtainPairView, SwitchRoleView
+from admin_backend.views import MyTokenObtainPairView, SwitchRoleView
 
 from .ninja import api as ninja_api
 from django.urls import include, path
 from rest_framework import routers
 
-from amaz_products import views
-from amaz_products import views_api
-from amaz_products import views_user_role_permission
+from admin_backend import views
+from admin_backend import views_api
+from admin_backend import views_user_role_permission
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -136,7 +136,6 @@ urlpatterns = [
     path("api/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh", TokenRefreshView.as_view(), name="token_fresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
-
 ]
 
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT )

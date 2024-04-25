@@ -72,7 +72,7 @@ LOGGING = {
 
 INSTALLED_APPS = [
     "rest_framework_simplejwt",
-    "amaz_products",
+    "admin_backend",
     "rest_framework",
     "django_filters",
     "django_extensions",

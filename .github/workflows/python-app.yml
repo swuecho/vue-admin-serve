@@ -57,7 +57,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        python manage.py makemigrations amaz_products
+        python manage.py makemigrations admin_backend
         python manage.py migrate
         pytest
       env:

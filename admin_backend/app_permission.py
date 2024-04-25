@@ -1,5 +1,5 @@
 from rest_framework.permissions import BasePermission
-from amaz_products.models import Role, UserRolesRole
+from admin_backend.models import Role, UserRolesRole
 
 
 class IsSuperAdmin(BasePermission):

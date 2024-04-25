@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-from amaz_products.models import (
+from admin_backend.models import (
     Permission,
     Profile,
     Role,
@@ -13,14 +13,14 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework_simplejwt.tokens import AccessToken
 
-from amaz_products.serializers import (
+from admin_backend.serializers import (
     GroupSerializer,
     ProfileSerializer,
     UserSerializer,
     RoleSerializer,
     PermissionSerializer,
 )
-from amaz_products.app_permission import IsSuperAdmin
+from admin_backend.app_permission import IsSuperAdmin
 
 
 def get_claims_from_request(request):

@@ -1,6 +1,6 @@
 from django.http import Http404
-from amaz_products.business.computer_hardware import cal_computer_spec_combination
-from amaz_products.models import (
+from admin_backend.business.computer_hardware import cal_computer_spec_combination
+from admin_backend.models import (
     Inventory,
     Parameter,
     Hardware,
@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 
 
-from amaz_products.serializers import (
+from admin_backend.serializers import (
     InventoryGroupSerializer,
     InventorySerializer,
     ParameterSerializer,
