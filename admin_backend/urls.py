@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
 from admin_backend import views_api, views_user_role_permission
 from admin_backend.views import MyTokenObtainPairView, SwitchRoleView
-
+from swagger_view import schema_view
 from .ninja import api as ninja_api
 
 router = routers.DefaultRouter()
@@ -102,6 +102,14 @@ urlpatterns = [
     path("api/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh", TokenRefreshView.as_view(), name="token_fresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path(
+        "api/swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    path(
+        "api/redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
+    ),
 ]
 
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT )

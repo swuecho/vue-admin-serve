@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -109,9 +110,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
-            "builtins": [
-                "django_components.templatetags.component_tags",
             ],
         },
     },
