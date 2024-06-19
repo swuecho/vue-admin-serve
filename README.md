@@ -27,3 +27,15 @@ python manage.py runserver 0.0.0.0:8001
 ## reset sequence
 
 python manage.py sqlsequencereset admin_backend
+
+
+TOOD:
+
+1. create admin user
+
+```bash
+python manage.py createsuperuser
+```
+
+2. add permission data
+
