@@ -6,7 +6,7 @@ authors = ["Hao Wu <echowuhao@gmail.com>"]
 license = "private"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

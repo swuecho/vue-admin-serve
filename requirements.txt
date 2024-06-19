@@ -24,7 +24,7 @@ drf-access-policy==1.0.1
 drf-yasg==1.21.7
 exceptiongroup==1.2.1
 fastdiff==0.3.0
-greenlet==1.1.0
+greenlet==3.0.3
 gunicorn==20.1.0
 idna==2.10
 inflection==0.5.1

@@ -16,6 +16,10 @@ export DATABASE_URL=pg_url
 
 ## start server
 
+python manage.py makemigrations admin_backend
+
+python manage.py migrate
+
 ```
 python manage.py runserver 0.0.0.0:8001
 ```
