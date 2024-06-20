@@ -98,6 +98,8 @@ urlpatterns = [
     path("api/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh", TokenRefreshView.as_view(), name="token_fresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    # json, yaml
+    path('api/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path(
         "api/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
