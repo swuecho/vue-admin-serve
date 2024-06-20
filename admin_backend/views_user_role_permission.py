@@ -155,8 +155,7 @@ class RolePermissionTree(APIView):
                     ).data,
                 }
             )
-        full_resp = {"code": 0, "message": "OK", "data": data}
-        return Response(data=full_resp)
+        return Response({"data": data})
 
 
 @permission_classes([IsSuperAdmin])
@@ -182,7 +181,7 @@ class RolePermissionMenuTree(APIView):
                     "children": PermissionSerializer(children, many=True).data,
                 }
             )
-        full_resp = {"code": 0, "message": "OK", "data": data}
+        full_resp = {"data": data}
         return Response(data=full_resp)
 
 
@@ -196,7 +195,7 @@ class RolePermissionMenuValidate(APIView):
             type__exact="MENU", path__exact=path
         ).exists()
 
-        full_resp = {"code": 0, "message": "OK", "data": exists}
+        full_resp = {"data": exists}
         return Response(data=full_resp)
 
 
@@ -218,8 +217,7 @@ class RolePermissionBaseTree(APIView):
                     "children": PermissionSerializer(children, many=True).data,
                 }
             )
-        full_resp = {"code": 0, "message": "OK", "data": data}
-        return Response(data=full_resp)
+        return Response({"data": data})
 
 
 class UserDetail(APIView):
@@ -247,7 +245,7 @@ class UserDetail(APIView):
             ).data,
             "current_role": current_role,
         }
-        return Response(data={"code": 0, "message": "OK", "data": data})
+        return Response({"data": data})
 
 
 ## create or update

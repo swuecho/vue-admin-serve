@@ -25,8 +25,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
             raise InvalidToken(e.args[0])
 
         return Response(
-            {"code": 0, "message": "OK", "data": serializer.validated_data},
-            status=status.HTTP_200_OK,
+            {"data": serializer.validated_data},
         )
 
 
@@ -50,6 +49,5 @@ class SwitchRoleView(APIView):
         update_last_login(None, user)
         print(data)
         return Response(
-            {"code": 0, "message": "OK", "data": data},
-            status=status.HTTP_200_OK,
+            {"data": data},
         )
