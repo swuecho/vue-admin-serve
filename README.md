@@ -13,12 +13,32 @@ export DEBUG=1
 export DATABASE_URL=pg_url
 ```
 
+## run migration
+
+```sh
+#python manage.py makemigrations admin_backend
+python manage.py migrate
+```
+
+## create data
+
+1. create admin user
+
+```bash
+python manage.py createsuperuser
+```
+
+2. add permission data
+
+python manage.py loaddata data/permission.json 
+python manage.py loaddata data/role.json 
+python manage.py loaddata data/user_roles_role.json
+python manage.py loaddata admin_backend.rolepermissionspermission 
 
 ## start server
 
-python manage.py makemigrations admin_backend
 
-python manage.py migrate
+
 
 ```
 python manage.py runserver 0.0.0.0:8001
@@ -31,11 +51,7 @@ python manage.py sqlsequencereset admin_backend
 
 TOOD:
 
-1. create admin user
 
-```bash
-python manage.py createsuperuser
-```
 
-2. add permission data
+
 
