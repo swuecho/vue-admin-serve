@@ -36,7 +36,7 @@ python manage.py createsuperuser
 python manage.py loaddata data/permission.json 
 python manage.py loaddata data/role.json 
 python manage.py loaddata data/user_roles_role.json
-python manage.py loaddata admin_backend.rolepermissionspermission 
+python manage.py loaddata data/role_permissions.json
 ```
 
 ## start server
