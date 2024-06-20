@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 
+
 from admin_backend.app_permission import IsSuperAdmin
 from admin_backend.models import (
     Permission,
@@ -68,13 +69,13 @@ class RoleViewSet(viewsets.ModelViewSet):
 
     queryset = Role.objects.all().order_by("name")
     serializer_class = RoleSerializer
-    filterset_fields = ["enable", "name"]
+    filterset_fields = ("enable", "name")
     permission_classes = [IsSuperAdmin]
 
     def list(self, request: Request):
-        roles = Role.objects.all().order_by("name")
+        queryset = self.filter_queryset(self.get_queryset())
         data = []
-        for role in roles:
+        for role in queryset:
             permission_ids = [
                 p["permission_id"]
                 for p in RolePermissionsPermission.objects.filter(role=role.id).values(
@@ -168,9 +169,6 @@ class RolePermissionList(APIView):
         permissions = role_permissions(current_role_code)
 
         return Response({"data": permissions})
-
-
-
 
 
 @permission_classes([IsSuperAdmin])
