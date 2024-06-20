@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
 from admin_backend import views_api, views_user_role_permission
 from admin_backend.views import MyTokenObtainPairView, SwitchRoleView
-from swagger_view import schema_view
+from .swagger_view import schema_view
 from .ninja import api as ninja_api
 
 router = routers.DefaultRouter()

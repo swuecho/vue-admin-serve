@@ -1,0 +1,29 @@
+[
+        {
+                "model": "admin_backend.role",
+                "pk": 1,
+                "fields": {
+                        "code": "SUPER_ADMIN",
+                        "name": "SUPER_ADMIN",
+                        "enable": true
+                }
+        },
+        {
+                "model": "admin_backend.role",
+                "pk": 5,
+                "fields": {
+                        "code": "ADMIN",
+                        "name": "ADMIN",
+                        "enable": true
+                }
+        },
+        {
+                "model": "admin_backend.role",
+                "pk": 6,
+                "fields": {
+                        "code": "OPERATOR",
+                        "name": "OPERATOR",
+                        "enable": true
+                }
+        }
+]

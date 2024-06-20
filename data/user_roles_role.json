@@ -1,0 +1,1 @@
+[{"model": "admin_backend.userrolesrole", "pk": 1, "fields": {"user": 1, "role": 1}}, {"model": "admin_backend.userrolesrole", "pk": 2, "fields": {"user": 1, "role": 5}}, {"model": "admin_backend.userrolesrole", "pk": 3, "fields": {"user": 1, "role": 6}}]
