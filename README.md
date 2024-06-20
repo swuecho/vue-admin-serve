@@ -1,5 +1,7 @@
-## superuser
 
+## frontend
+
+https://github.com/swuecho/vue-admin-ui
 
 ## install dev
 
@@ -30,14 +32,14 @@ python manage.py createsuperuser
 
 2. add permission data
 
+```sh
 python manage.py loaddata data/permission.json 
 python manage.py loaddata data/role.json 
 python manage.py loaddata data/user_roles_role.json
 python manage.py loaddata admin_backend.rolepermissionspermission 
+```
 
 ## start server
-
-
 
 
 ```
@@ -48,8 +50,6 @@ python manage.py runserver 0.0.0.0:8001
 
 python manage.py sqlsequencereset admin_backend
 
-
-TOOD:
 
 
 
