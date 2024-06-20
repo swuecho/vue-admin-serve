@@ -199,6 +199,19 @@ class RolePermissionMenuValidate(APIView):
         return Response(data=full_resp)
 
 
+def get_children(permission):
+    children = sorted(
+        permission.children.all(), key=lambda x: x.order if x.order else 0
+    )
+    return [
+        {
+            **PermissionSerializer(child).data,
+            "children": get_children(child),
+        }
+        for child in children
+    ]
+
+
 @permission_classes([IsSuperAdmin])
 class RolePermissionBaseTree(APIView):
     def get(self, request):
@@ -208,13 +221,10 @@ class RolePermissionBaseTree(APIView):
         for permission in sorted(
             top_level_permissions, key=lambda x: x.order if x.order else 0
         ):
-            children = sorted(
-                permission.children.all(), key=lambda x: x.order if x.order else 0
-            )
             data.append(
                 {
                     **PermissionSerializer(permission).data,
-                    "children": PermissionSerializer(children, many=True).data,
+                    "children": get_children(permission),
                 }
             )
         return Response({"data": data})
