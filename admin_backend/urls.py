@@ -51,6 +51,11 @@ urlpatterns = [
         name="role_permission_tree",
     ),
     path(
+        "api/role/permissions/list/",
+        views_user_role_permission.RolePermissionList.as_view(),
+        name="role_permission_list",
+    ),
+    path(
         "api/permissions/base/tree/",
         views_user_role_permission.RolePermissionBaseTree.as_view(),
         name="role_permission_tree",

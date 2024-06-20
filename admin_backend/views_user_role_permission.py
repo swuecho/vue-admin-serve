@@ -21,6 +21,7 @@ from admin_backend.serializers import (
     RoleSerializer,
     UserSerializer,
 )
+from admin_backend.util import role_permissions
 
 
 def get_claims_from_request(request):
@@ -156,6 +157,20 @@ class RolePermissionTree(APIView):
                 }
             )
         return Response({"data": data})
+
+
+class RolePermissionList(APIView):
+    def get(self, request):
+        """Retrieve list of permissions based on user role and permission"""
+        jwt_claims = get_claims_from_request(request)
+        current_role_code = jwt_claims.get("role")
+
+        permissions = role_permissions(current_role_code)
+
+        return Response({"data": permissions})
+
+
+
 
 
 @permission_classes([IsSuperAdmin])
