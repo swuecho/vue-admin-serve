@@ -42,9 +42,10 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by("-date_joined")
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filterset_fields = ("username", "is_active")
 
     def list(self, request: Request):
-        users = User.objects.all().order_by("id")
+        users = self.filter_queryset(self.get_queryset())
         data_list = []
         for user in users:
             # user_roles = UserRolesRole.objects.filter(user=user)
