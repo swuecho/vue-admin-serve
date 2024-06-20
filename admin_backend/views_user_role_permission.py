@@ -7,11 +7,20 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 
 from admin_backend.app_permission import IsSuperAdmin
-from admin_backend.models import (Permission, Profile, Role,
-                                  RolePermissionsPermission, UserRolesRole)
-from admin_backend.serializers import (GroupSerializer, PermissionSerializer,
-                                       ProfileSerializer, RoleSerializer,
-                                       UserSerializer)
+from admin_backend.models import (
+    Permission,
+    Profile,
+    Role,
+    RolePermissionsPermission,
+    UserRolesRole,
+)
+from admin_backend.serializers import (
+    GroupSerializer,
+    PermissionSerializer,
+    ProfileSerializer,
+    RoleSerializer,
+    UserSerializer,
+)
 
 
 def get_claims_from_request(request):
@@ -268,3 +277,13 @@ def role_users_create_or_update(request):
 
 # api/roles/switch?role=OPERATOR
 # http://localhost:3200/api/auth/current-role/switch/OPERATOR
+
+
+@api_view(["POST"])
+def logout(request):
+    """logout, alway return true"""
+    payload = request.data
+    user = request.user
+    print(payload)
+    print(user)
+    return Response(data=True)

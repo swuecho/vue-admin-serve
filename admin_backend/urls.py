@@ -92,13 +92,9 @@ urlpatterns = [
     # currently not used, but can be used.
     path("api/auth/switch_role/", SwitchRoleView.as_view(), name="switch-role"),
     path("api/auth/login", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
-    #      {
-    #     "code": 0,
-    #     "message": "OK",
-    #     "data": true,
-    #     "originUrl": "/auth/logout"
-    # }
-    # path("api/auth/logout", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path(
+        "api/auth/logout", views_user_role_permission.logout, name="token_obtain_pair"
+    ),
     path("api/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh", TokenRefreshView.as_view(), name="token_fresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
