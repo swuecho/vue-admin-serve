@@ -86,20 +86,27 @@ urlpatterns = [
         name="user_detail",
     ),
     path("api/", include(router.urls)),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # path("ninja/", TokenAuthMiddleware(ninja_api.urls)),
-    path("ninja/", ninja_api.urls),
-    # currently not used, but can be used.
+    path("api/", ninja_api.urls),
+    # rest_framework admin page need this
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    # vue admin serve
     path("api/auth/switch_role/", SwitchRoleView.as_view(), name="switch-role"),
     path("api/auth/login", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path(
         "api/auth/logout", views_user_role_permission.logout, name="token_obtain_pair"
     ),
+    # used
     path("api/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh", TokenRefreshView.as_view(), name="token_fresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    ## swagger  ##
     # json, yaml
-    path('api/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path(
+        "api/swagger<format>/",
+        schema_view.without_ui(cache_timeout=0),
+        name="schema-json",
+    ),
     path(
         "api/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

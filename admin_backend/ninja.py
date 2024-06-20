@@ -10,9 +10,13 @@ class GlobalJWTAuth(HttpBearer):
     def authenticate(self, request: HttpRequest, token: str) -> Optional[Any]:
         user_and_token = JWTAuthentication().authenticate(request)
         if user_and_token is not None:
-            user = user_and_token[0]
+            print(user_and_token)
+            [user, claims] = user_and_token
+            print(user)
+            print(claims)
+            print((user, claims))
             request.user = user
-            request.claims = user_and_token[1]
+            request.claims = claims
             return user
         else:
             return None
@@ -21,14 +25,14 @@ class GlobalJWTAuth(HttpBearer):
 api = NinjaAPI(auth=GlobalJWTAuth())
 
 
-@api.get("/hello")
+@api.get("/ninja_demo/hello")
 def hello(request, name: str = "world"):
     print(request.user)
-    print(repr(request.claims))
+    print(request.claims)
     return f"Hello {name}"
 
 
-@api.get("/math")
+@api.get("/ninjia_demo/math")
 def math(request, a: int, b: int):
     return {"add": a + b, "multiply": a * b}
 
@@ -37,7 +41,7 @@ class HelloSchema(Schema):
     name: str = "world"
 
 
-@api.post("/hello_schema")
+@api.post("/ninja_demo/hello_schema")
 def hello_schema(request, data: HelloSchema):
     return f"Hello {data.name}"
 
@@ -51,6 +55,13 @@ class UserSchema(Schema):
     last_name: str = None
 
 
-@api.get("/me", response=UserSchema)
+@api.get("/ninja_demo/me", response=UserSchema)
 def me(request):
+    print((1, request.claims))
+    claims = request.claims
+    print(type(claims))
+    jwt_payload = claims.payload
+    print(jwt_payload)
+    role = request.claims.get("role")
+    print(role)
     return request.user
