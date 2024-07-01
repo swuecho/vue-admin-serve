@@ -18,7 +18,7 @@ django-filter==2.4.0
 django-ninja==1.1.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==4.7.2
-drf-access-policy==1.0.1
+drf-access-policy==1.5.0
 drf-yasg==1.21.7
 exceptiongroup==1.2.1
 fastdiff==0.3.0
