@@ -24,7 +24,7 @@ exceptiongroup==1.2.1
 fastdiff==0.3.0
 greenlet==3.0.3
 gunicorn==20.1.0
-idna==2.10
+idna==3.7
 inflection==0.5.1
 iniconfig==1.1.1
 ipython-genutils==0.2.0
